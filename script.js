@@ -4,11 +4,10 @@ let body = document.querySelector('body')
 let form = document.querySelector('form')
 let btn = document.querySelector('#btn')
 let namebox = document.querySelector('#name')
+let add = document.querySelector('#add')
 
-
-//toggle
-let toggle = document.querySelector('#toggle')
-
+//Hides the 'add' button when the page first load.
+add.hidden = true
 
 
 let myLibrary = [];
@@ -20,26 +19,29 @@ function Book() {
 function addBookToLibrary(e) {
   // do stuff here
 
+  add.hidden = false
+
   let temp = {name: `${namebox.value}`}
   
     myLibrary.push(temp)
     console.log(myLibrary)
     //clears input
     namebox.value = '';
-    //prevents button from refreshing the page
+    //prevents form buttons from refreshing the page
     e.preventDefault();
+
+    form.hidden = true
+    add.hidden = false
 }
 
-function toggler(){
-    if(form.hidden == false) {
-        form.hidden = true
-    } else {
-        form.hidden = false
-    }
+function adder(){
+
+    form.hidden = false
+    add.hidden = true
 }
 
 btn.addEventListener('click', addBookToLibrary)
-toggle.addEventListener('click', toggler)
+add.addEventListener('click', adder)
 
 
 

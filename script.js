@@ -30,3 +30,19 @@ function addBookToLibrary() {
 addBookToLibrary()
 
 console.log(myLibrary)
+
+/***Data collection****/
+
+let btn = document.querySelector('#btn')
+let box = document.querySelector('#name')
+
+
+function goNow(){
+    console.log(box.value)
+}
+
+
+
+
+btn.addEventListener('click', goNow)
+

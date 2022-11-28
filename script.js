@@ -6,6 +6,10 @@ let btn = document.querySelector('#btn')
 let namebox = document.querySelector('#name')
 
 
+//toggle
+let toggle = document.querySelector('#toggle')
+
+
 
 let myLibrary = [];
 
@@ -26,8 +30,16 @@ function addBookToLibrary(e) {
     e.preventDefault();
 }
 
-
+function toggler(){
+    if(form.hidden == false) {
+        form.hidden = true
+    } else {
+        form.hidden = false
+    }
+}
 
 btn.addEventListener('click', addBookToLibrary)
+toggle.addEventListener('click', toggler)
+
 
 

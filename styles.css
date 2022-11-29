@@ -356,30 +356,32 @@
   .card-list {
     width: 80%;
     margin: 5px auto;
-    background-color: antiquewhite;
+    background-color: rgb(252, 246, 246);
     height: 70vh;
     padding: 10px;
     border-radius: 10px;
     overflow: auto; /*Automatically adds a scrollbar when needed*/
   }
 
-.card1 {
+.card {
     display: flex;
     align-items: center;
     gap: 20px;
     justify-content: center;
-    background-color: rgb(193, 252, 193);
+    background: linear-gradient(to bottom right, #aefbfd, #c9daff);
     width: 90%;
     height: 10%;
-    margin: 2px auto;
+    margin: 10px auto;
     border-radius: 10px;
 }
 
 .category {
     display: flex; 
     gap: 5px;
+    color: rgb(46, 45, 45);
 }
 
-.card1 > .category > span{
-color: red;
+.card > .category > span{
+color: black;
+font-weight: 600;
 }

@@ -10,6 +10,12 @@ let readbox = document.querySelector('#read')
 let add = document.querySelector('#add')
 let cardList = document.querySelector('.card-list')
 
+
+//card creatro
+
+/* const category = document.createElement('div')
+category.classList.add('category') */
+
 //Hides the 'add' button when the page first load.
 form.hidden = true
 
@@ -65,9 +71,40 @@ for(let i = 0; i < arr1.length; i++) {
 //EXPERIMENT
 let mine = new Book('yours', 'josue', 900, true)
 
+let checker = []
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
+checker.push(mine)
 
-for (var key in mine) {
-  if (mine.hasOwnProperty(key)) {
-      console.log('<p>'+key +'</p>' +": " + mine[key]);
-  }
+console.log(checker)
+
+for (i = 0; i < checker.length; i++){
+  //creates a card on every cycle
+  const card = document.createElement('div')
+  card.classList.add('card')
+  cardList.appendChild(card)
+
+  for (var key in mine) {
+    //creates a div on every cycle
+    if (mine.hasOwnProperty(key)) {
+
+      const category = document.createElement('div')
+      category.classList.add('category')
+      card.appendChild(category)
+      //MAGIC
+      category.innerHTML += "<span>"+key+"</span>" +": " + mine[key];
+    }
+  } 
 }
+
+
+

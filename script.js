@@ -29,10 +29,45 @@ function addBookToLibrary(e) {
   // do stuff here
 
   let temp = new Book(titlebox.value, authorbox.value, pagesbox.value, displayRadioValue())
-  
-    myLibrary.push(temp)
-    console.log(myLibrary)
 
+    //resets library
+    myLibrary = [];
+    //adds object to library
+    myLibrary.push(temp)
+    // console.log(myLibrary)
+    
+
+
+    for (let i in myLibrary){
+      if(i in myLibrary){
+    
+        //creates a card on every cycle
+        const card = document.createElement('div')
+        card.classList.add('card')
+        cardList.append (card)
+    
+        for (let key in temp) {
+          
+          if (key in temp) {
+            //creates a div on every cycle
+            const category = document.createElement('div')
+            category.classList.add('category')
+            const span = document.createElement('span')
+            span.classList.add('header')
+            const span2 = document.createElement('span')
+            span2.classList.add('response')
+            card.append(category)
+            category.append(span)
+            category.append(span2)
+            //MAGIC
+            span.innerHTML += key+": ";
+            span2.innerHTML += temp[key];
+          }
+        }  
+    
+      }
+    }
+    
     //clears input
     titlebox.value = '';
     authorbox.value = '';
@@ -60,21 +95,6 @@ add.addEventListener('click', adder)
 
 
 
-
-
-
-
-/* 
-Experiment
-
-for (let i in ObjectArray){
-  if (i in ObjectArray){
-    //this is used to loop through arrays and objects.
-  }
-}
-*/
-
-
 //radio buttons click
 
  function displayRadioValue() {
@@ -93,6 +113,17 @@ selection1.addEventListener('click', displayRadioValue)
 selection2.addEventListener('click', displayRadioValue)  
 
 
+//radio buttons click reset
+function hideRadioValue() {
+  let selection = document.getElementsByName('read');
+
+  for(let i in selection) {
+    if(selection[i].checked)
+    selection[i].checked = false
+  }
+} 
+
+
 
 /* Experiment
 
@@ -102,11 +133,3 @@ for (let i in ObjectArray){
   }
 } */
 
-function hideRadioValue() {
-  let selection = document.getElementsByName('read');
-
-  for(let i in selection) {
-    if(selection[i].checked)
-    selection[i].checked = false
-  }
-} 

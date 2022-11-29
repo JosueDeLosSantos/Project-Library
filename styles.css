@@ -349,35 +349,46 @@ template {
 }
 
 
+body {
+  background-color: rgb(237, 246, 248);
+}
+
+
 h1 {
   text-align: center;
 }
 
 .card-list {
-  width: 80%;
+  width: 90%;
   margin: 5px auto;
-  background-color: antiquewhite;
+  background-color: rgb(237, 246, 248);
   height: 70vh;
   padding: 10px;
   border-radius: 10px;
   overflow: auto; /*Automatically adds a scrollbar when needed*/
 }
 
-.card1 {
+.card {
   display: flex;
+  align-items: center;
   gap: 20px;
-  justify-content: center;
-  background-color: rgb(193, 252, 193);
+  justify-items: flex-start;
+  background: linear-gradient(to bottom right, #aefbfd, #c9daff);
   width: 90%;
-  margin: 2px auto;
+  height: 10%;
+  margin: 10px auto;
   border-radius: 10px;
+  box-shadow: 2px 2px 5px #888888;
+  padding: 0 15px;
 }
 
 .category {
   display: flex; 
   gap: 5px;
+  color: rgb(46, 45, 45);
 }
 
-.card1 > .category > p:nth-child(1){
-color: red;
+.card > .category > .header{
+color: black;
+font-weight: 600;
 }

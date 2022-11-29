@@ -387,7 +387,7 @@
     color: rgb(46, 45, 45);
 }
 
-.card > .category > span{
+.card > .category > .header{
 color: black;
 font-weight: 600;
 }

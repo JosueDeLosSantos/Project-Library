@@ -1,14 +1,14 @@
 
 
-let body = document.querySelector('body')
-let form = document.querySelector('form')
-let btn = document.querySelector('#btn')
-let titlebox = document.querySelector('#title')
-let authorbox = document.querySelector('#author')
-let pagesbox = document.querySelector('#pages')
-let readbox = document.querySelector('#read')
-let add = document.querySelector('#add')
-let cardList = document.querySelector('.card-list')
+const body = document.querySelector('body')
+const form = document.querySelector('form')
+const btn = document.querySelector('#btn')
+const titlebox = document.querySelector('#title')
+const authorbox = document.querySelector('#author')
+const pagesbox = document.querySelector('#pages')
+const readbox = document.querySelector('#read')
+const add = document.querySelector('#add')
+const cardList = document.querySelector('.card-list')
 
 
 //card creatro
@@ -69,7 +69,7 @@ for(let i = 0; i < arr1.length; i++) {
 
 
 //EXPERIMENT
-let mine = new Book('yours', 'josue', 900, true)
+let mine = new Book('yours', 'josue', 900, false)
 
 let checker = []
 checker.push(mine)
@@ -91,20 +91,25 @@ for (i = 0; i < checker.length; i++){
   //creates a card on every cycle
   const card = document.createElement('div')
   card.classList.add('card')
-  cardList.appendChild(card)
+  cardList.append (card)
 
-  for (var key in mine) {
+  for (let key in mine) {
     //creates a div on every cycle
     if (mine.hasOwnProperty(key)) {
 
       const category = document.createElement('div')
       category.classList.add('category')
-      card.appendChild(category)
+      const span = document.createElement('span')
+      span.classList.add('header')
+      const span2 = document.createElement('span')
+      span2.classList.add('header2')
+      category.append(span)
+      category.append(span2)
+      card.append(category)
       //MAGIC
-      category.innerHTML += "<span>"+key+"</span>" +": " + mine[key];
+      span.innerHTML += key+": ";
+      span2.innerHTML += mine[key];
     }
   } 
 }
-
-
 

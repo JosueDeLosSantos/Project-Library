@@ -54,5 +54,20 @@ function adder(){
 btn.addEventListener('click', addBookToLibrary)
 add.addEventListener('click', adder)
 
+/*
+let arr1 = [{name: 'b'},{author: 'a'}]
+
+for(let i = 0; i < arr1.length; i++) {
+  console.log(arr1[i])
+}*/
 
 
+//EXPERIMENT
+let mine = new Book('yours', 'josue', 900, true)
+
+
+for (var key in mine) {
+  if (mine.hasOwnProperty(key)) {
+      console.log('<p>'+key +'</p>' +": " + mine[key]);
+  }
+}

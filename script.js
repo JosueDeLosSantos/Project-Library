@@ -87,29 +87,57 @@ checker.push(mine)
 
 console.log(checker)
 
-for (i = 0; i < checker.length; i++){
-  //creates a card on every cycle
-  const card = document.createElement('div')
-  card.classList.add('card')
-  cardList.append (card)
+for (let i in checker){
+  if(i in checker){
 
-  for (let key in mine) {
-    //creates a div on every cycle
-    if (mine.hasOwnProperty(key)) {
+    //creates a card on every cycle
+    const card = document.createElement('div')
+    card.classList.add('card')
+    cardList.append (card)
 
-      const category = document.createElement('div')
-      category.classList.add('category')
-      const span = document.createElement('span')
-      span.classList.add('header')
-      const span2 = document.createElement('span')
-      span2.classList.add('header2')
-      category.append(span)
-      category.append(span2)
-      card.append(category)
-      //MAGIC
-      span.innerHTML += key+": ";
-      span2.innerHTML += mine[key];
-    }
-  } 
+    for (let key in mine) {
+      //creates a div on every cycle
+      if (key in mine) {
+
+        const category = document.createElement('div')
+        category.classList.add('category')
+        const span = document.createElement('span')
+        span.classList.add('header')
+        const span2 = document.createElement('span')
+        span2.classList.add('header2')
+        category.append(span)
+        category.append(span2)
+        card.append(category)
+        //MAGIC
+        span.innerHTML += key+": ";
+        span2.innerHTML += mine[key];
+      }
+    } 
+
+  }
 }
+
+
+/* 
+Experiment
+
+for (let i in ObjectArray){
+  if (i in ObjectArray){
+    //this is used to loop through arrays and objects.
+  }
+}
+
+} */
+
+
+
+for (let i in mine) {
+  //creates a div on every cycle
+  if (i in mine) {
+
+    console.log(i)
+    
+  }
+} 
+
 

@@ -1,20 +1,15 @@
 
 
-const body = document.querySelector('body')
-const form = document.querySelector('form')
-const btn = document.querySelector('#btn')
-const titlebox = document.querySelector('#title')
-const authorbox = document.querySelector('#author')
-const pagesbox = document.querySelector('#pages')
-const readbox = document.querySelector('#read')
-const add = document.querySelector('#add')
-const cardList = document.querySelector('.card-list')
 
-
-//card creatro
-
-/* const category = document.createElement('div')
-category.classList.add('category') */
+let body = document.querySelector('body')
+let form = document.querySelector('form')
+let btn = document.querySelector('#btn')
+let titlebox = document.querySelector('#title')
+let authorbox = document.querySelector('#author')
+let pagesbox = document.querySelector('#pages')
+let readbox = document.getElementsByName('read')
+let add = document.querySelector('#add')
+let cardList = document.querySelector('.card-list')
 
 //Hides the 'add' button when the page first load.
 form.hidden = true
@@ -33,47 +28,16 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(e) {
   // do stuff here
 
-  let temp = new Book(titlebox.value, authorbox.value, pagesbox.value, readbox.value)
+  let temp = new Book(titlebox.value, authorbox.value, pagesbox.value, displayRadioValue())
   
     myLibrary.push(temp)
-    //////////////////////////////////////////////////
-    for (let i in myLibrary){
-      if(i in myLibrary){
-    
-        //creates a card on every cycle
-        const card = document.createElement('div')
-        card.classList.add('card')
-        cardList.append (card)
-    
-        for (let key in temp) {
-          
-          if (key in temp) {
-            //creates a div on every cycle
-            const category = document.createElement('div')
-            category.classList.add('category')
-            const span = document.createElement('span')
-            span.classList.add('header')
-            const span2 = document.createElement('span')
-            span2.classList.add('response')
-            card.append(category)
-            category.append(span)
-            category.append(span2)
-            //MAGIC
-            span.innerHTML += key+": ";
-            span2.innerHTML += temp[key];
-          }
-        } 
-    
-      }
-    }
+    console.log(myLibrary)
 
-
-    //////////////////////////////////////////////////
     //clears input
     titlebox.value = '';
     authorbox.value = '';
     pagesbox.value = '';
-    readbox.value = '';
+    hideRadioValue();
     //prevents form buttons from refreshing the page
     e.preventDefault();
 
@@ -91,6 +55,8 @@ function adder(){
 
 btn.addEventListener('click', addBookToLibrary)
 add.addEventListener('click', adder)
+ 
+
 
 
 
@@ -108,3 +74,39 @@ for (let i in ObjectArray){
 }
 */
 
+
+//radio buttons click
+
+ function displayRadioValue() {
+  let selection = document.getElementsByName('read');
+
+  for(let i in selection) {
+    if(selection[i].checked)
+    return selection[i].value
+  }
+}
+
+let selection1 = document.querySelector('#False')
+let selection2 = document.querySelector('#True')
+
+selection1.addEventListener('click', displayRadioValue)
+selection2.addEventListener('click', displayRadioValue)  
+
+
+
+/* Experiment
+
+for (let i in ObjectArray){
+  if (i in ObjectArray){
+    //this is used to loop through arrays and objects.
+  }
+} */
+
+function hideRadioValue() {
+  let selection = document.getElementsByName('read');
+
+  for(let i in selection) {
+    if(selection[i].checked)
+    selection[i].checked = false
+  }
+} 

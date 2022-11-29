@@ -348,6 +348,11 @@
     display: none;
   }
 
+
+  body {
+    background-color: white;
+  }
+
   
   h1 {
     text-align: center;
@@ -356,7 +361,7 @@
   .card-list {
     width: 80%;
     margin: 5px auto;
-    background-color: rgb(252, 246, 246);
+    background-color: white;
     height: 70vh;
     padding: 10px;
     border-radius: 10px;
@@ -373,6 +378,7 @@
     height: 10%;
     margin: 10px auto;
     border-radius: 10px;
+    box-shadow: 2px 2px 5px #888888;
 }
 
 .category {

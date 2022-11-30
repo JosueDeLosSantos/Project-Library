@@ -10,6 +10,8 @@ let pagesbox = document.querySelector('#pages')
 let readbox = document.getElementsByName('read')
 let add = document.querySelector('#add')
 let cardList = document.querySelector('.card-list')
+const div = document.querySelector('.datatester')
+// console.log(div.dataset)
 
 //Hides the 'add' button when the page first load.
 form.hidden = true
@@ -63,11 +65,11 @@ function addBookToLibrary(e) {
             span.innerHTML += key+": ";
             span2.innerHTML += temp[key];
           }
-        }  
+        }
     
       }
     }
-    
+
     //clears input
     titlebox.value = '';
     authorbox.value = '';
@@ -132,4 +134,12 @@ for (let i in ObjectArray){
     //this is used to loop through arrays and objects.
   }
 } */
+
+
+
+/* 
+next: 
+-add data attribute to each card automatically
+-link the data attribute with the cards-array index ex: card-index == [1] && data-attribute == "1"
+ */
 

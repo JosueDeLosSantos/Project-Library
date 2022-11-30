@@ -368,7 +368,7 @@ h1 {
   overflow: auto; /*Automatically adds a scrollbar when needed*/
 }
 
-.card {
+.card{
   display: flex;
   align-items: center;
   gap: 20px;
@@ -392,3 +392,33 @@ h1 {
 color: black;
 font-weight: 600;
 }
+
+
+.editer {
+  display: flex;
+  margin-left: auto;
+} 
+
+.deleter, .read-checker {
+  color: rgba(0, 0, 0, 0.7);
+  border: 0.5px solid gray;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  padding: 3px 10px;
+}
+
+.deleter {
+  margin-left: 20px;
+}
+
+.deleter:active, .read-checker:active {
+  font-size: 0.8rem;
+  padding: 4px 11px;
+}
+
+.deleter:active {
+  font-size: 0.7.5rem;
+  padding: 4px 12.5px 4px 12px;
+  margin-left: 19.1px;
+}
+

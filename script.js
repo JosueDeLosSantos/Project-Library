@@ -66,6 +66,22 @@ function addBookToLibrary(e) {
             span2.innerHTML += temp[key];
           }
         }
+        //buttons div
+        const editer = document.createElement('div')
+        editer.classList.add('editer')
+        //delete button
+        const deleter = document.createElement('button')
+        deleter.classList.add('deleter')
+        deleter.innerText = 'delete'
+        //read button
+        const read = document.createElement('button')
+        read.classList.add('read-checker')
+        read.innerText = 'read'
+        //adds both buttons to the div
+        editer.append(read)
+        editer.append(deleter)
+        card.append(editer)
+        
     
       }
     }

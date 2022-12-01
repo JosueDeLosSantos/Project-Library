@@ -32,59 +32,96 @@ function addBookToLibrary(e) {
 
   let temp = new Book(titlebox.value, authorbox.value, pagesbox.value, displayRadioValue())
 
-    //resets library
-    myLibrary = [];
-    //adds object to library
-    myLibrary.push(temp)
-    // console.log(myLibrary)
-    
+  //resets library
+  myLibrary = [];
+  //adds object to library
+  myLibrary.push(temp)
+  // console.log(myLibrary)
+  
 
 
-    for (let i in myLibrary){
-      if(i in myLibrary){
-    
-        //creates a card on every cycle
-        const card = document.createElement('div')
-        card.classList.add('card')
-        cardList.append (card)
-    
-        for (let key in temp) {
-          
-          if (key in temp) {
-            //creates a div on every cycle
-            const category = document.createElement('div')
-            category.classList.add('category')
-            const span = document.createElement('span')
-            span.classList.add('header')
-            const span2 = document.createElement('span')
-            span2.classList.add('response')
-            card.append(category)
-            category.append(span)
-            category.append(span2)
-            //MAGIC
-            span.innerHTML += key+": ";
-            span2.innerHTML += temp[key];
-          }
-        }
-        //buttons div
-        const editer = document.createElement('div')
-        editer.classList.add('editer')
-        //delete button
-        const deleter = document.createElement('button')
-        deleter.classList.add('deleter')
-        deleter.innerText = 'delete'
-        //read button
-        const read = document.createElement('button')
-        read.classList.add('read-checker')
-        read.innerText = 'read'
-        //adds both buttons to the div
-        editer.append(read)
-        editer.append(deleter)
-        card.append(editer)
+  for (let i in myLibrary){
+    if(i in myLibrary){
+  
+      //creates a card on every cycle
+      const card = document.createElement('div')
+      card.classList.add('card')
+      cardList.append (card)
+  
+      for (let key in temp) {
         
-    
+        if (key in temp) {
+          //creates a div on every cycle
+          const category = document.createElement('div')
+          category.classList.add('category')
+          const span = document.createElement('span')
+          span.classList.add('header')
+          const span2 = document.createElement('span')
+          span2.classList.add('response')
+          card.append(category)
+          category.append(span)
+          category.append(span2)
+          //MAGIC
+          span.innerHTML += key+": ";
+          span2.innerHTML += temp[key];
+        }
       }
+      //buttons div
+      const editer = document.createElement('div')
+      editer.classList.add('editer')
+      //delete button
+      const deleter = document.createElement('button')
+      deleter.classList.add('deleter')
+      deleter.innerText = 'delete'
+      //read button
+      const read = document.createElement('button')
+      read.classList.add('read-checker')
+      read.innerText = 'read'
+      //adds both buttons to the div
+      editer.append(read)
+      editer.append(deleter)
+      card.append(editer)
+      
+  
     }
+  }
+
+
+  /***read button 'click'***/
+  const readChecker = document.querySelectorAll('.read-checker')
+  const readCheckerArr = Array.from(readChecker)
+
+  function readCheckerSelection(e){
+    const found = e.target
+    for (let i in readCheckerArr){
+      if(readCheckerArr[i] == found)
+      //Adds data attribute to each 'read' buton
+      found.dataset.readCounter = `${i}`;
+    }
+  }
+
+  readChecker.forEach(element => {
+    element.addEventListener('click', readCheckerSelection)
+  })
+
+
+  /***delete button 'click'***/
+  const deleteChecker = document.querySelectorAll('.deleter')
+  const deleteCheckerArr = Array.from(deleteChecker)
+
+  function deleteCheckerSelection(e){
+    const found = e.target
+    for (let i in deleteCheckerArr){
+      if(deleteCheckerArr[i] == found)
+      //Adds data attribute to each 'delete' buton
+      found.dataset.deleteCounter = `${i}`;
+    }
+  }
+
+  deleteChecker.forEach(element => {
+    element.addEventListener('click', deleteCheckerSelection)
+  })
+
 
     //clears input
     titlebox.value = '';
@@ -143,6 +180,11 @@ function hideRadioValue() {
 
 
 
+
+
+
+
+
 /* Experiment
 
 for (let i in ObjectArray){
@@ -155,7 +197,5 @@ for (let i in ObjectArray){
 
 /* 
 next: 
--add data attribute to each card automatically
--link the data attribute with the cards-array index ex: card-index == [1] && data-attribute == "1"
+-link the 'delete' buttons data attributes with the books array
  */
-

@@ -2,6 +2,12 @@
 
 
 
+const someArr = ['box1', 'box2', 'box3']
+
+console.log(someArr)
+const container = document.querySelector('.container')
+
+
 //Selects all boxes
 const box = document.querySelectorAll('.box')
 //Converts all boxes into an array
@@ -16,9 +22,11 @@ function deleter(e){
    for (let i in boxArr){
     
     if(boxArr[i] == found)
-    found.dataset.test = `${i}`
-   }
+    found.dataset.test = `${i}`;
     
+   }
+   someArr.splice(found.dataset.test, 1)
+   console.log(someArr)
 }
 
 box.forEach(box => {

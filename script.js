@@ -53,8 +53,8 @@ function addBookToLibrary(e) {
       category.append(span)
       category.append(span2)
       //Add content to each new created span
-      span.innerHTML = key+": ";
-      span2.innerHTML = temp[key];
+      span.innerHTML = key+": "
+      temp[key] == undefined ? span2.innerHTML = 'False' : span2.innerHTML = temp[key]
     }
 
   }
@@ -98,8 +98,9 @@ function displayRadioValue() {
   let selection = document.getElementsByName('read');
 
   for(let i in selection) {
-    if(selection[i].checked)
-    return selection[i].value
+
+    return selection[i].checked ? selection[i].value : 'False'
+    
   }
 }
 

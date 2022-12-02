@@ -1,34 +1,37 @@
+/**
+ * First, we select parent element
+ * */
+    const container = document.querySelector("#container");
 
-
-
-
-const someArr = ['box1', 'box2', 'box3']
-
-console.log(someArr)
-const container = document.querySelector('.container')
-
-
-//Selects all boxes
-const box = document.querySelectorAll('.box')
-//Converts all boxes into an array
-const boxArr = Array.from(box)
-
-function deleter(e){
-    console.log(e)
-    console.log(e.target)
-   //Targets the 'clicked' node
-   const found = e.target
-   
-   for (let i in boxArr){
+    /**
+     * After that we add event listener to that element
+     * */
+    container.addEventListener("click", function(e){
+        /**
+         * Then, we check if we clicked on an element that has
+         * .click-btn class
+         * */
+        if (e.target.classList.contains('click-btn')) {
+            /**
+             * If we have clicked on such element we
+             * run some function
+             * */
+        alert(`You have clicked ${e.target.innerHTML}`);
+        }
+    })
     
-    if(boxArr[i] == found)
-    found.dataset.test = `${i}`;
-    
-   }
-   someArr.splice(found.dataset.test, 1)
-   console.log(someArr)
-}
-
-box.forEach(box => {
-    box.addEventListener('click', deleter)
-})
+    /**
+     * Now let's create our dynamic element
+     * Another button
+     * */
+    const btn = document.createElement("button");
+    /**
+     * In order for event bubbling to work,
+     * we have to add the same class as we used
+     * in our eventListener
+     * */
+    btn.className = "click-btn";
+    //Then we add some text inside that button
+    btn.innerText = "The dynamically created button";
+    //And we append it
+    container.appendChild(btn);

@@ -52,9 +52,9 @@ function addBookToLibrary(e) {
       card.append(category)
       category.append(span)
       category.append(span2)
-
-      span.innerHTML += key+": ";
-      span2.innerHTML += temp[key];
+      //Add content to each new created span
+      span.innerHTML = key+": ";
+      span2.innerHTML = temp[key];
     }
 
   }

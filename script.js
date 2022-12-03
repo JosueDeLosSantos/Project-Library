@@ -23,6 +23,12 @@ function Book(title, author, pages, read) {
 
 }
 
+Book.prototype.readStatus = function(){
+
+  return this.read == 'False' ? 'True' : 'False';
+
+}
+
 function addBookToLibrary(e) {
 
   //Creates new object
@@ -40,7 +46,7 @@ function addBookToLibrary(e) {
   
   for (let key in temp) {
     
-    if (key in temp){
+    if (temp.hasOwnProperty(key)){
 
       const category = document.createElement('div')
       category.classList.add('category')
@@ -148,7 +154,17 @@ cardList.addEventListener('click', function(e){
 cardList.addEventListener('click', function(e){
   /***read button 'click'***/
   if(e.target.classList.contains('read-checker')){
-    console.log(e.target.classList.value)
+    // let status = e.target.parentNode.previousSibling.children[1].innerHTML;
+    let status = e.target.parentNode.previousSibling.children[1];
+    // return status == 'False' ? status = '' : status = ''
+    console.log(status.innerText)
+    console.log(e.target.parentNode.previousSibling)
+    const parentTest = e.target.parentNode.previousSibling
+    // parentTest.removeChild(status)
+    const readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
+
+    status.innerText = readStatus
+
   }
 })
 

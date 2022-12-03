@@ -42,6 +42,7 @@ function addBookToLibrary(e) {
   card.dataset.cardId = myLibrary.length - 1
   //adds card to the card list
   cardList.append (card)
+  console.log(temp)
   
   
   for (let key in temp) {
@@ -60,7 +61,8 @@ function addBookToLibrary(e) {
       category.append(span2)
       //Add content to each new created span
       span.innerHTML = key+": "
-      temp[key] == undefined ? span2.innerHTML = 'False' : span2.innerHTML = temp[key]
+      // temp[key] == undefined ? span2.innerHTML = 'False' : span2.innerHTML = temp[key]
+      span2.innerHTML = temp[key]
     }
 
   }
@@ -163,27 +165,12 @@ cardList.addEventListener('click', function(e){
     // const parentTest = e.target.parentNode.previousSibling
     // parentTest.removeChild(status)
 
-    const readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
+    let readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
     status.innerText = readStatus
     // myLibrary[e.target.parentNode.parentNode.dataset.cardId] = readStatus
-    let looper = myLibrary[e.target.parentNode.parentNode.dataset.cardId]
-
-    for(let key in looper){
-      if(looper.hasOwnProperty(key)){
-
-        if(looper[key] == 'False' && key == 'read'){
-          looper.read = 'True'
-          myLibrary[e.target.parentNode.parentNode.dataset.cardId] = looper
-          console.log(myLibrary)
-        }else if(looper[key] == 'True' && key == 'read'){
-          looper.read == 'False'
-          myLibrary[e.target.parentNode.parentNode.dataset.cardId] = looper
-          console.log(myLibrary)
-        }
-        
-      }
-    }
-
+    // let looper = myLibrary[e.target.parentNode.parentNode.dataset.cardId]
+    myLibrary[e.target.parentNode.parentNode.dataset.cardId].read = readStatus
+    console.log(myLibrary)
   }
 })
 

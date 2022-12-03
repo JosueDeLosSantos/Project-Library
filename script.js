@@ -41,9 +41,7 @@ function addBookToLibrary(e) {
   //adds data attribute to every added card
   card.dataset.cardId = myLibrary.length - 1
   //adds card to the card list
-  cardList.append (card)
-  console.log(temp)
-  
+  cardList.append (card) 
   
   for (let key in temp) {
     
@@ -61,7 +59,6 @@ function addBookToLibrary(e) {
       category.append(span2)
       //Add content to each new created span
       span.innerHTML = key+": "
-      // temp[key] == undefined ? span2.innerHTML = 'False' : span2.innerHTML = temp[key]
       span2.innerHTML = temp[key]
     }
 
@@ -143,12 +140,12 @@ cardList.addEventListener('click', function(e){
   /***delete button***/
 
   if(e.target.classList.contains('deleter')){
-  
+    //Targets the data attribute value of the selected card
     const deletion = e.target.parentNode.parentNode.dataset.cardId;
+    //remove the specific card from the DOM
     cardList.removeChild(e.target.parentNode.parentNode)
-    //delete book from my library
+    //delete book from my library, using the targeted data attribute number, and leave its respective index empty
     delete myLibrary[deletion]
-    console.log(myLibrary)
   }
 })
 
@@ -156,21 +153,15 @@ cardList.addEventListener('click', function(e){
 cardList.addEventListener('click', function(e){
   /***read button 'click'***/
   if(e.target.classList.contains('read-checker')){
-    // let status = e.target.parentNode.previousSibling.children[1].innerHTML;
-    let status = e.target.parentNode.previousSibling.children[1];
-    // return status == 'False' ? status = '' : status = ''
-    // console.log(status.innerText)
-    console.log(e.target.parentNode.previousSibling)
-    
-    // const parentTest = e.target.parentNode.previousSibling
-    // parentTest.removeChild(status)
 
+    let status = e.target.parentNode.previousSibling.children[1];
+    //Triggers the inherited function on the specific index of the Library
     let readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
+    //Assings the new value to the node's innerText
     status.innerText = readStatus
-    // myLibrary[e.target.parentNode.parentNode.dataset.cardId] = readStatus
-    // let looper = myLibrary[e.target.parentNode.parentNode.dataset.cardId]
+    //update myLibrary[specific index number].read value
     myLibrary[e.target.parentNode.parentNode.dataset.cardId].read = readStatus
-    console.log(myLibrary)
+
   }
 })
 

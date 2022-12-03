@@ -157,13 +157,32 @@ cardList.addEventListener('click', function(e){
     // let status = e.target.parentNode.previousSibling.children[1].innerHTML;
     let status = e.target.parentNode.previousSibling.children[1];
     // return status == 'False' ? status = '' : status = ''
-    console.log(status.innerText)
+    // console.log(status.innerText)
     console.log(e.target.parentNode.previousSibling)
-    const parentTest = e.target.parentNode.previousSibling
+    
+    // const parentTest = e.target.parentNode.previousSibling
     // parentTest.removeChild(status)
-    const readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
 
+    const readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
     status.innerText = readStatus
+    // myLibrary[e.target.parentNode.parentNode.dataset.cardId] = readStatus
+    let looper = myLibrary[e.target.parentNode.parentNode.dataset.cardId]
+
+    for(let key in looper){
+      if(looper.hasOwnProperty(key)){
+
+        if(looper[key] == 'False' && key == 'read'){
+          looper.read = 'True'
+          myLibrary[e.target.parentNode.parentNode.dataset.cardId] = looper
+          console.log(myLibrary)
+        }else if(looper[key] == 'True' && key == 'read'){
+          looper.read == 'False'
+          myLibrary[e.target.parentNode.parentNode.dataset.cardId] = looper
+          console.log(myLibrary)
+        }
+        
+      }
+    }
 
   }
 })

@@ -70,10 +70,12 @@ function addBookToLibrary(e) {
   //delete button
   const deleter = document.createElement('button')
   deleter.classList.add('deleter')
+  deleter.classList.add('delete-bottom')
   deleter.innerText = 'delete'
   //read button
   const read = document.createElement('button')
   read.classList.add('read-checker')
+  read.classList.add(`${displayRadioValue()}`)
   read.innerText = 'read'
   //appends 'read' and 'delete' buttons
   card.append(editer)

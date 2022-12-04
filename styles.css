@@ -360,6 +360,7 @@ body {
   background-image: url(img/istockphoto-185232989-170667a.jpg);
   background-size: cover;
   box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 h1 {
@@ -462,7 +463,7 @@ input[type="text"]:focus-visible, input[type="tel"]:focus-visible {
 }
 
 .card > .category > .header{
-color: black;
+color: rgb(107, 3, 3);
 font-weight: 600;
 }
 

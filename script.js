@@ -17,12 +17,12 @@ const falseState = true
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(Title, Author, Pages, Read) {
 
-  this.title = title,
-  this.author = author,
-  this.pages = pages,
-  this.read = read
+  this.Title = Title,
+  this.Author = Author,
+  this.Pages = Pages,
+  this.Read = Read
 
 }
 

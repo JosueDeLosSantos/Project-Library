@@ -357,22 +357,88 @@ template {
 
 
 body {
-  background-color: rgb(237, 246, 248);
+  background-image: url(img/istockphoto-185232989-170667a.jpg);
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+.add {
+  text-align: center;
+  color: black;
+  border: 0.5px solid gray;
+  border-bottom: 5px solid gray;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  padding: 3px 10px;
+  background-image: var(--button-normal-background);
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.add:active {
+  background: rgb(189, 188, 188);
+  border-bottom: 1px solid gray;
+  padding-top: 3.9px;
+  padding-bottom: 8px;
+  font-size: 1.4rem;
 }
 
 
-h1 {
-  text-align: center;
+ form {
+  background: linear-gradient(to bottom right, #aefbfd, #c9daff);
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form > div {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+input[type="text"], input[type="tel"] {
+  width: 80%;
+  height: 30px;
+  cursor: pointer;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
+
+input[type="text"]:focus-visible, input[type="tel"]:focus-visible {
+  outline: none;
+  background-color: rgb(255 254 242);
+  border: 1px solid rgb(122, 0, 122);
+}
+
+[type="checkbox"],
+[type="radio"] {
+  width: 15px;
 }
 
 .card-list {
   width: 90%;
   margin: 5px auto;
-  background-color: rgb(237, 246, 248);
   height: 70vh;
   padding: 10px;
   border-radius: 10px;
   overflow: auto; /*Automatically adds a scrollbar when needed*/
+
 }
 
 .card{
@@ -414,6 +480,21 @@ font-weight: 600;
   padding: 3px 10px;
 }
 
+#btn {
+  color: black;
+  border: 0.5px solid gray;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  padding: 8px 24px;
+  background-image: var(--button-normal-background);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#btn:active {
+  background: rgb(189, 188, 188)
+}
+
 .delete-bottom {
   background-image: linear-gradient(to bottom, rgb(236, 236, 0), rgb(201, 201, 0));
 }
@@ -424,6 +505,18 @@ font-weight: 600;
 
 .True {
   background-image: linear-gradient(to bottom, rgb(184, 216, 110), rgb(70, 187, 85));
+}
+
+.delete-bottom:active {
+  box-shadow: 0px 0px 20px rgb(236, 236, 0);
+}
+
+.False:active {
+  box-shadow: 0px 0px 20px rgb(255, 183, 183);
+}
+
+.True:active {
+  box-shadow: 0px 0px 20px rgb(184, 216, 110);
 }
 
 .deleter {

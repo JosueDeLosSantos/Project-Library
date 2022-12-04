@@ -1,16 +1,19 @@
 // Project Library
 
 const body = document.querySelector('body')
+const mainH1 = document.querySelector('.main-h1')
 const form = document.querySelector('form')
 const btn = document.querySelector('#btn')
 const titlebox = document.querySelector('#title')
 const authorbox = document.querySelector('#author')
 const pagesbox = document.querySelector('#pages')
 const readbox = document.getElementsByName('read')
-const add = document.querySelector('#add')
 const cardList = document.querySelector('.card-list')
+const add = document.querySelector('.add')
 
 form.hidden = true
+
+const falseState = true
 
 let myLibrary = [];
 
@@ -30,9 +33,12 @@ Book.prototype.readStatus = function(){
 }
 
 function addBookToLibrary(e) {
-
+  
   //Creates new object
   let temp = new Book(titlebox.value, authorbox.value, pagesbox.value, displayRadioValue())
+
+  const thisIs = e.target.parentNode.parentNode.children[2].children[0]
+  thisIs.classList.add('add2')
 
   //adds object to library
   myLibrary.push(temp)
@@ -128,6 +134,7 @@ selection2.addEventListener('click', displayRadioValue)
 
 function adder(){
 
+  mainH1.hidden = true
   form.hidden = false
   add.hidden = true
   cardList.hidden = true
@@ -160,6 +167,13 @@ cardList.addEventListener('click', function(e){
     //Triggers the inherited function on the specific index of the Library
     let readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
     //Assings the new value to the node's innerText
+    if(readStatus == 'True'){
+      e.target.classList.remove('False')
+      e.target.classList.add('True')
+    } else {
+      e.target.classList.remove('True')
+      e.target.classList.add('False')
+    }
     status.innerText = readStatus
     //update myLibrary[specific index number].read value
     myLibrary[e.target.parentNode.parentNode.dataset.cardId].read = readStatus

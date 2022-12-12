@@ -17,28 +17,32 @@ const falseState = true
 
 let myLibrary = [];
 
-function Book(Title, Author, Pages, Read) {
+class Book {
+  constructor (Title, Author, Pages, Read) {
+    this.Title = Title,
+    this.Author = Author,
+    this.Pages = Pages,
+    this.Read = Read
+  }
 
-  this.Title = Title,
-  this.Author = Author,
-  this.Pages = Pages,
-  this.Read = Read
+  readStatus() {
 
-}
-
-Book.prototype.readStatus = function(){
-
-  return this.read == 'False' ? 'True' : 'False';
+    if (this.read == 'False'){
+      return 'True'
+    } else {
+      return 'False'
+    } 
+  }
 
 }
 
 function addBookToLibrary(e) {
-  
+   
   //Creates new object
   let temp = new Book(titlebox.value, authorbox.value, pagesbox.value, displayRadioValue())
 
-  const thisIs = e.target.parentNode.parentNode.children[2].children[0]
-  thisIs.classList.add('add2')
+  /* const thisIs = e.target.parentNode.parentNode.children[2].children[0]
+  thisIs.classList.add('add2') */
 
   //adds object to library
   myLibrary.push(temp)
@@ -80,6 +84,7 @@ function addBookToLibrary(e) {
   deleter.innerText = 'delete'
   //read button
   const read = document.createElement('button')
+
   read.classList.add('read-checker')
   read.classList.add(`${displayRadioValue()}`)
   read.innerText = 'read'
@@ -167,17 +172,16 @@ cardList.addEventListener('click', function(e){
     //Triggers the inherited function on the specific index of the Library
     let readStatus = myLibrary[e.target.parentNode.parentNode.dataset.cardId].readStatus()
     //Assings the new value to the node's innerText
-    if(readStatus == 'True'){
-      e.target.classList.remove('False')
-      e.target.classList.add('True')
-    } else {
-      e.target.classList.remove('True')
-      e.target.classList.add('False')
-    }
     status.innerText = readStatus
     //update myLibrary[specific index number].read value
     myLibrary[e.target.parentNode.parentNode.dataset.cardId].read = readStatus
-
+    if(readStatus == 'False'){
+      e.target.classList.remove('True')
+      e.target.classList.add('False')
+    } else {
+      e.target.classList.remove('False')
+      e.target.classList.add('True')
+    }
   }
 })
 
@@ -190,3 +194,17 @@ for (let i in Object){
     //this is used to loop through objects.
   }
 } */
+
+
+
+class User {
+  constructor(name, surname) { 
+    this.name = name; 
+    this.surname = surname; 
+  }
+  sayHi() { alert(this.name); }
+}
+
+const man = new User('josue', 'De los santos')
+
+// for (let key in man) console.log(key)

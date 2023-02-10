@@ -1,57 +1,79 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LIBRARY</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
-
+  </head>
+  <body>
     <header class="main-h1">
-        <h1>Book list</h1>
+      <h1>Book list</h1>
     </header>
 
     <form>
-        <h1>Add new book</h1>
+      <h1>Add new book</h1>
 
-        <div class="tex-input">
-            <input type="text" name="title" id="title" placeholder="Book title">
-        </div>
+      <div class="text-input">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Book title"
+          required
+          minlength="2"
+          maxlength="20"
+        />
+      </div>
 
-        <div class="text-input">
-            <input type="text" name="author" id="author" placeholder="Author name">
-        </div>
+      <div class="text-input">
+        <input
+          type="text"
+          name="author"
+          id="author"
+          placeholder="Author name"
+          required
+          minlength="2"
+        />
+      </div>
 
-        <div class="text-input">
-            <input type="tel" name="pages" id="pages" placeholder="Amount of pages">
-        </div>
-       
-        <div class="read" style="display: flex;">
-            <input type="radio" name="read" id="True" value="True"><label for="True">Read</label>
-            <input type="radio" name="read" id="False" value="False"><label for="False">Not read</label>
-        </div>
+      <div class="number-input">
+        <input
+          type="number"
+          name="pages"
+          id="pages"
+          placeholder="Amount of pages"
+          min="5"
+          required
+        />
+      </div>
 
-        <div class="btnWrapper"><input id="btn" type="submit" value="Add"></div>
+      <div class="read" style="display: flex">
+        <input type="radio" name="read" id="True" value="True" /><label
+          for="True"
+          >Read</label
+        >
+        <input type="radio" name="read" id="False" value="False" /><label
+          for="False"
+          >Not read</label
+        >
+      </div>
+
+      <span class="error" aria-live="polite"></span>
+
+      <div class="btnWrapper"><input id="btn" type="submit" value="Add" /></div>
     </form>
 
     <div class="card-list">
-       <!-- see how to bind events to dynamically created elements on the link below -->
-        <!-- 
+      <!-- see how to bind events to dynamically created elements on the link below -->
+      <!-- 
             https://webinuse.com/how-to-bind-events-to-dynamically-created-elements/
          -->
-         <div class="add">Add new book</div>
-       
+      <div class="add">Add new book</div>
     </div>
-    
-    
-    <!-- <input id="add" type="submit" value="Add new book"> -->
 
-    
-    
-</body>
-</html> 
+    <!-- <input id="add" type="submit" value="Add new book"> -->
+  </body>
+</html>

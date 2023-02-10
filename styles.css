@@ -8,7 +8,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
+html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -174,7 +174,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -184,7 +185,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -351,16 +353,19 @@ template {
 :root {
   --green-bottom: linear-gradient(to bottom, rgb(158 193 76), rgb(65 177 79));
   --red-bottom: linear-gradient(to bottom, rgb(252 124 124), rgb(247 99 99));
-  --button-normal-background: linear-gradient(to bottom, rgb(239 239 239), rgb(189, 188, 188));
-  --red-bottom:
+  --button-normal-background: linear-gradient(
+    to bottom,
+    rgb(239 239 239),
+    rgb(189, 188, 188)
+  );
+  --red-bottom: ;
 }
-
 
 body {
   background-image: url(img/istockphoto-185232989-170667a.jpg);
   background-size: cover;
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 h1 {
@@ -393,8 +398,7 @@ h1 {
   font-size: 1.4rem;
 }
 
-
- form {
+form {
   background: linear-gradient(to bottom right, #aefbfd, #c9daff);
   border-radius: 10px;
   margin-top: 100px;
@@ -403,7 +407,7 @@ h1 {
   width: 30%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
 }
 
 form > div {
@@ -412,7 +416,8 @@ form > div {
   gap: 5px;
 }
 
-input[type="text"], input[type="tel"] {
+input[type="text"],
+input[type="number"] {
   width: 80%;
   height: 30px;
   cursor: pointer;
@@ -421,7 +426,8 @@ input[type="text"], input[type="tel"] {
   border: 1px solid gray;
 }
 
-input[type="text"]:focus-visible, input[type="tel"]:focus-visible {
+input[type="text"]:focus-visible,
+input[type="number"]:focus-visible {
   outline: none;
   background-color: rgb(255 254 242);
   border: 1px solid rgb(122, 0, 122);
@@ -432,6 +438,33 @@ input[type="text"]:focus-visible, input[type="tel"]:focus-visible {
   width: 15px;
 }
 
+.text-input {
+  margin-top: 20px;
+}
+
+.number-input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.error {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding: 0;
+
+  font-size: 80%;
+  color: red;
+}
+
+#pages:invalid:hover {
+  border-color: hsl(0, 100%, 70%);
+}
+
+.read {
+  margin-bottom: 5px;
+}
+
 .card-list {
   width: 90%;
   margin: 5px auto;
@@ -439,10 +472,9 @@ input[type="text"]:focus-visible, input[type="tel"]:focus-visible {
   padding: 10px;
   border-radius: 10px;
   overflow: auto; /*Automatically adds a scrollbar when needed*/
-
 }
 
-.card{
+.card {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -457,23 +489,23 @@ input[type="text"]:focus-visible, input[type="tel"]:focus-visible {
 }
 
 .category {
-  display: flex; 
+  display: flex;
   gap: 5px;
   color: rgb(46, 45, 45);
 }
 
-.card > .category > .header{
-color: rgb(107, 3, 3);
-font-weight: 600;
+.card > .category > .header {
+  color: rgb(107, 3, 3);
+  font-weight: 600;
 }
-
 
 .editer {
   display: flex;
   margin-left: auto;
-} 
+}
 
-.deleter, .read-checker {
+.deleter,
+.read-checker {
   color: rgba(0, 0, 0, 0.7);
   border: 0.5px solid gray;
   border-radius: 25px;
@@ -493,19 +525,31 @@ font-weight: 600;
 }
 
 #btn:active {
-  background: rgb(189, 188, 188)
+  background: rgb(189, 188, 188);
 }
 
 .delete-bottom {
-  background-image: linear-gradient(to bottom, rgb(236, 236, 0), rgb(201, 201, 0));
+  background-image: linear-gradient(
+    to bottom,
+    rgb(236, 236, 0),
+    rgb(201, 201, 0)
+  );
 }
 
 .False {
-  background-image: linear-gradient(to bottom, rgb(255, 183, 183), rgb(250, 94, 94));
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 183, 183),
+    rgb(250, 94, 94)
+  );
 }
 
 .True {
-  background-image: linear-gradient(to bottom, rgb(184, 216, 110), rgb(70, 187, 85));
+  background-image: linear-gradient(
+    to bottom,
+    rgb(184, 216, 110),
+    rgb(70, 187, 85)
+  );
 }
 
 .delete-bottom:active {
@@ -524,7 +568,8 @@ font-weight: 600;
   margin-left: 20px;
 }
 
-.deleter:active, .read-checker:active {
+.deleter:active,
+.read-checker:active {
   font-size: 0.8rem;
   padding: 4px 11px;
 }
@@ -534,4 +579,3 @@ font-weight: 600;
   padding: 4px 12.5px 4px 12px;
   margin-left: 19.1px;
 }
-
